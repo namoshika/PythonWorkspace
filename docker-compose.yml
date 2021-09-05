@@ -1,0 +1,14 @@
+services:
+  sample:
+    build:
+      context: .
+      args:
+        - WORK_DIR=./workspace
+    tty: true
+    volumes:
+      - $PWD/workspace:/home/docker/workspace
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
